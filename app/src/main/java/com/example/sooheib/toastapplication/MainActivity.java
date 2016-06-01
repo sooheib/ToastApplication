@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity  {
 
 
     Button button;
@@ -17,7 +17,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         button=(Button) findViewById(R.id.button);
-        button.setOnClickListener(this);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"this is toast",Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
     }
@@ -26,11 +32,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this,"this is toast",Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onClick(View v) {
-        Toast.makeText(this,"this is toast",Toast.LENGTH_SHORT).show();
-
-
-
-    }
 }
